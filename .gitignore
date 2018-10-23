@@ -24,7 +24,7 @@ hs_err_pid*
 
 
 # Project files
-./idea
+.idea/
 
 # mvn wrapper
 mvnw
