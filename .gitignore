@@ -27,5 +27,5 @@ hs_err_pid*
 ./idea
 
 # mvn wrapper
-mvnw/
+mvnw
 mvnw.cmd
