@@ -1,4 +1,4 @@
-package com.nding1718.personalProjects.BlogSite;
+package com.nding.springboot.blog.BlogSite;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
