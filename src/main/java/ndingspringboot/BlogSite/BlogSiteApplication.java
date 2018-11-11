@@ -1,12 +1,12 @@
-package com.nding.springboot.blog.BlogSite;
+package ndingspringboot.BlogSite;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class BlogSiteApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(BlogSiteApplication.class, args);
 	}
 }
