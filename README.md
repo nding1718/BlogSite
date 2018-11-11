@@ -1,2 +1,0 @@
-# BlogSite
-Build a BlogSite
