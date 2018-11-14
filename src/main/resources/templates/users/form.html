@@ -3,20 +3,19 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-    <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
 <h3 th:text="${title}"></h3>
 <form action="/users" th:action="@{/users}" method="POST" th:object="${user}">
-    <input type="hidden" name="id" th:value="*{id}">
-    Name: <br>
-    <input type="text" name="name" th:value="*{name}">
-    <br>
-    Email: <br>
-    <input type="text" name="email" th:value="*{email}">
-    <input type="submit", name="submit">
+    <input type="hidden" name="id" th:value="*{id}" />
+    Name: <br />
+    <input type="text" name="name" th:value="*{name}" />
+    <br />
+    Email: <br />
+    <input type="text" name="email" th:value="*{email}" />
+    <input type="submit" name="submit" />
 </form>
 <div th:replace="~{fragments/footer :: footer}"></div>
 </body>

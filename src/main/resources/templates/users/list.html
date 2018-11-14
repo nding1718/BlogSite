@@ -2,9 +2,8 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<meta>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head>
+    <title th:text="${title}">welcome</title>
 </head>
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
