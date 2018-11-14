@@ -30,7 +30,7 @@ public class UserRestController {
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public ModelAndView view(@PathVariable("id") Long id, Model model) {
-        User user = userRepository.findById(id).orElse(null);
+        User user = userRepository.findOne(id);
         model.addAttribute("user", user);
         model.addAttribute("titile", "View User");
         return new ModelAndView("users/view", "userModel", model);
@@ -51,13 +51,13 @@ public class UserRestController {
 
     @RequestMapping(value ="/delete/{id}", method = RequestMethod.GET)
     public ModelAndView delete(@PathVariable("id") Long id) {
-        userRepository.deleteById(id);
+        userRepository.delete(id);
         return new ModelAndView("redirect:/users");
     }
 
     @RequestMapping(value = "/modify/{id}", method = RequestMethod.GET)
     public ModelAndView modify(@PathVariable("id") Long id, Model model) {
-        User user = userRepository.findById(id).orElse(null);
+        User user = userRepository.findOne(id);
         model.addAttribute("user", user);
         model.addAttribute("titile", "Edit User");
         return new ModelAndView("users/form", "userModel", model);
