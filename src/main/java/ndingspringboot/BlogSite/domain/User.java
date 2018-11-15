@@ -18,16 +18,22 @@ public class User {
     private String email;
     private String name;
 
+    private String username;
+    private String password;
+
+    private String avatar;
+
     protected User() {}; // according the JPA API we must have a public or protected constructor
 
-    public User(String email, String name) {
+    public User(String email, String name, String username) {
         this.email = email;
         this.name = name;
+        this.username = username;
     }
 
     @Override
     public String toString() {
-        return String.format("User[id=%d, name='%s', email='%s']", id, name, email);
+        return String.format("User[id=%d, name='%s', username='%s', email='%s']", id, name, username,email);
     }
 
 }
