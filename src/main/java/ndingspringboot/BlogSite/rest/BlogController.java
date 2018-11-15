@@ -21,14 +21,10 @@ public class BlogController {
     private EsBlogRepository esBlogRepository;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<EsBlog> list(
-            @RequestParam(value = "title") String title,
-            @RequestParam(value = "summary") String summary,
-            @RequestParam(value = "content") String content,
-            @RequestParam(value = "pageIndex", defaultValue = "0") int pageIndex,
-            @RequestParam(value = "pageSize", defaultValue = "10") int pageSize
-    ) {
-        Page<EsBlog> page = esBlogRepository.findDistinctEsBlogByTitleContainingOrSummaryContainingOrContentContaining(title, summary, content, new PageRequest(pageIndex, pageSize));
-        return page.getContent();
+    public String listBlogs(
+            @RequestParam(value = "order",required = false, defaultValue = "new") String order,
+            @RequestParam(value = "keyword", required = false, defaultValue = "") String keyword) {
+        System.out.println("order:" +  order  + ";keyword:" + keyword);
+        return "redirect:/index?order=" + order + "&keyword=" + keyword;
     }
 }

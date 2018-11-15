@@ -12,12 +12,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping(value = "/users")
-public class UserRestController {
+public class UserController {
 
     private UserRepository userRepository;
 
     @Autowired
-    public UserRestController(UserRepository userRepository) {
+    public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
