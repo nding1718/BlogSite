@@ -17,9 +17,6 @@ import java.util.List;
 @RequestMapping(value = "/blogs")
 public class BlogController {
 
-    @Autowired
-    private EsBlogRepository esBlogRepository;
-
     @RequestMapping(method = RequestMethod.GET)
     public String listBlogs(
             @RequestParam(value = "order",required = false, defaultValue = "new") String order,
