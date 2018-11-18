@@ -14,7 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true) // start method safty configure
+@EnableGlobalMethodSecurity(prePostEnabled = true) // start methodlevel_security configure
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String KEY = "nan.ding";
 

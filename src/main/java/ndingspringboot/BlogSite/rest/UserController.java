@@ -27,16 +27,30 @@ import java.util.List;
 @PreAuthorize("hasAuthority('ROLE_ADMIN')") // you have to assign the role access to be operate on this method
 public class UserController {
 
+    // Two repository classes we need to use
     private UserService userService;
-
     private AuthorityService authorityService;
 
+    /**
+     * Constructor DI Instead of fields DI
+     * @param userService
+     * @param authorityService
+     */
     @Autowired
     public UserController(UserService userService, AuthorityService authorityService) {
         this.userService = userService;
         this.authorityService = authorityService;
     }
 
+    /**
+     * This method is used to get all the users we have.
+     * @param async
+     * @param pageIndex
+     * @param pageSize
+     * @param name
+     * @param model
+     * @return
+     */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView list(@RequestParam(value="async",required=false) boolean async,
                              @RequestParam(value="pageIndex",required=false,defaultValue="0") int pageIndex,
@@ -53,12 +67,23 @@ public class UserController {
         return new ModelAndView(async==true?"users/list :: #mainContainerRepleace":"users/list", "userModel", model);
     }
 
+    /**
+     * This method is the method we used to access the add user page
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView createForm(Model model) {
         model.addAttribute("user", new User(null, null, null, null));
         return new ModelAndView("users/add", "userModel", model);
     }
 
+    /**
+     * Method used to actually create a user or update the users information
+     * @param user
+     * @param authorityId
+     * @return
+     */
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Response> create(User user, Long authorityId) {
         List<Authority> authorities = new ArrayList<>();
@@ -90,8 +115,12 @@ public class UserController {
         return ResponseEntity.ok().body(new Response(true, "处理成功", user));
     }
 
-
-
+    /**
+     * Method used to delete a user
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Response> delete(@PathVariable("id") Long id, Model model) {
         try {
@@ -103,6 +132,12 @@ public class UserController {
     }
 
 
+    /**
+     * Method used to retrieve the information of a specific user
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "edit/{id}",method = RequestMethod.GET)
     public ModelAndView modifyForm(@PathVariable("id") Long id, Model model) {
         User user = userService.getUserById(id);
