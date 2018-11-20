@@ -24,21 +24,21 @@ public class User implements UserDetails, Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // self-increase value
     private Long id;
 
-    @NotEmpty(message = "Name can not be empty")
+    @NotEmpty(message = "Name Is Empty")
     @Size(min = 2, max = 20)
     @Column(nullable = false, length = 20)
     private String name;
 
-    @NotEmpty(message = "Email can not be empty")
+    @NotEmpty(message = "Email Is Empty")
     @Size(max = 50)
-    @Email(message = "The email format is not right")
+    @Email(message = "Email Format Not Right")
     @Column(nullable = false, length = 50, unique = true)
     private String email;
 
-    @NotEmpty(message = "username can not be empty")
+    @NotEmpty(message = "Username is empty")
     @Size(min = 3, max = 20)
     @Column(nullable = false, length = 20, unique = true)
     private String username;
