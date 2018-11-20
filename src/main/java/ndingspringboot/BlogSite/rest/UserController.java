@@ -68,7 +68,7 @@ public class UserController {
     }
 
     /**
-     * This method is the method we used to access the add user page
+     * This method is the method we used to access the add user page(which is a form page)
      * @param model
      * @return
      */
