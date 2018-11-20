@@ -17,20 +17,28 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/u")
 public class UserSpaceController {
 
+    // Two services that we need
     private UserService userService;
 
     private UserDetailsService userDetailsService;
 
+    /**
+     * Constructor DI
+     * @param userService
+     * @param userDetailsService
+     */
     @Autowired
     public UserSpaceController(UserService userService, UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
         this.userService = userService;
     }
 
+
     @RequestMapping(value ="/{username}", method = RequestMethod.GET)
-    public String userSpace(@PathVariable("username") String username) {
-        System.out.println("username" +  username);
-        return "u";
+    public String userSpace(@PathVariable("username") String username, Model model) {
+        User  user = (User)userDetailsService.loadUserByUsername(username);
+        model.addAttribute("user", user);
+        return "redirect:/u/" + username + "/blogs";
     }
 
     @RequestMapping(value = "/{username}/profile")
