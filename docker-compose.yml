@@ -1,4 +1,4 @@
-running-information-database:
+blogsite-database:
   image: mysql
   container_name: blogsite-mysql
   ports:
