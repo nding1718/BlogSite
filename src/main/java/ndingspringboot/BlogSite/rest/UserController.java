@@ -74,7 +74,7 @@ public class UserController {
      */
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView createForm(Model model) {
-        model.addAttribute("user", new User(null, null, null, null));
+        model.addAttribute("user", new User(null, null, null, null, null));
         return new ModelAndView("users/add", "userModel", model);
     }
 

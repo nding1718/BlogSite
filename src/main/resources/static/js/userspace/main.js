@@ -1,11 +1,6 @@
-/*!
- * Avatar JS.
- * 
- * @since: 1.0.0 2017/4/6
- * @author Way Lau <https://waylau.com>
+/**
+ * Javascript used to control the avator handle
  */
-"use strict";
-//# sourceURL=main.js
  
 // DOM 加载完再执行
 $(function() {
@@ -45,8 +40,9 @@ $(function() {
 	} 
 	
 	// 提交用户头像的图片数据
-	$("#submitEditAvatar").on("click", function () { 
-		var form = $('#avatarformid')[0];  
+	$("#submitEditAvatar").on("click", function () {
+		//var form = $('#avatarFormContainer')[0]
+		var form = $('#avatarformid')[0];
 	    var formData = new FormData(form);   //这里连带form里的其他参数也一起提交了,如果不需要提交其他参数可以直接FormData无参数的构造函数  
 	    var base64Codes = $(".cropImg > img").attr("src");
  	    formData.append("file",convertBase64UrlToBlob(base64Codes));  //append函数的第一个参数是后台获取数据的参数名,和html标签的input的name属性功能相同  
@@ -89,7 +85,7 @@ $(function() {
 				 });
 	        },
 		    error : function() {
-		    	 toastr.error("error!");
+		    	 toastr.error("error is here!");
 		    }
 		})
 	});
