@@ -40,7 +40,6 @@ public class User implements UserDetails, Serializable{
 
     @NotEmpty(message = "username can not be empty")
     @Size(min = 3, max = 20)
-    @Column(nullable = false, length = 20, unique = true)
     private String username;
 
     @NotEmpty(message = "Password can not be empty")
@@ -60,11 +59,12 @@ public class User implements UserDetails, Serializable{
 
     protected User() {}; // according the JPA API we must have a public or protected constructor
 
-    public User(String email, String name, String username, String password) {
+    public User(Long id, String email, String name, String username, String avatar) {
         this.email = email;
         this.name = name;
         this.username = username;
-        this.password = password;
+        this.id = id;
+        this.avatar = avatar;
     }
 
 
@@ -81,52 +81,52 @@ public class User implements UserDetails, Serializable{
         this.authorities = authorities;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    @Override
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public String getAvatar() {
+//        return avatar;
+//    }
+//
+//    public void setAvatar(String avatar) {
+//        this.avatar = avatar;
+//    }
+//
+//    @Override
+//    public String getUsername() {
+//        return username;
+//    }
+//
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
+//
+//
+//    @Override
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
 
     public void setEncodePassword(String password) {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
