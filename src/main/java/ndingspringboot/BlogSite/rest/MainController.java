@@ -39,7 +39,7 @@ public class MainController {
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView index() {
-        return new ModelAndView("index");
+        return new ModelAndView("redirect:/blogs");
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
