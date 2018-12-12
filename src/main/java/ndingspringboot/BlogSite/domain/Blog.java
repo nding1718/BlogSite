@@ -171,6 +171,10 @@ public class Blog implements Serializable {
         return createTime;
     }
 
+    public List<Comment> getComments() {
+        return this.comments;
+    }
+
     /**
      * Remember to also set the comment number here
      * @param comments
