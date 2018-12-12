@@ -44,16 +44,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/css/**", "/js/**", "/fonts/**", "/index").permitAll() // 都可以访问
-                .antMatchers("/h2-console/**").permitAll() // 都可以访问
-                .antMatchers("/admins/**").hasRole("ADMIN") // 需要相应的角色才能访问
+        http.authorizeRequests().antMatchers("/css/**", "/js/**", "/fonts/**", "/index").permitAll() // everyone can access
+                .antMatchers("/h2-console/**").permitAll() // everyone can access
+                .antMatchers("/admins/**").hasRole("ADMIN") // must have corresponding role to access
                 .and()
-                .formLogin()   //基于 Form 表单登录验证
-                .loginPage("/login").failureUrl("/login-error") // 自定义登录界面
-                .and().rememberMe().key(KEY) // 启用 remember me
-                .and().exceptionHandling().accessDeniedPage("/403");  // 处理异常，拒绝访问就重定向到 403 页面
-        http.csrf().ignoringAntMatchers("/h2-console/**"); // 禁用 H2 控制台的 CSRF 防护
-        http.headers().frameOptions().sameOrigin(); // 允许来自同一来源的H2 控制台的请求
+                .formLogin()   //Login based on form
+                .loginPage("/login").failureUrl("/login-error") // self-defined login
+                .and().rememberMe().key(KEY) // use "Remember me function"
+                .and().exceptionHandling().accessDeniedPage("/403");  // handle the exception, if we have access denied, redirect to 403 page
+        http.csrf().ignoringAntMatchers("/h2-console/**"); // stop the CSRF protection for h2 console
+        http.headers().frameOptions().sameOrigin(); // allow h2 access request from the same source
     }
 
     @Autowired
