@@ -67,6 +67,10 @@ public class User implements UserDetails, Serializable{
         this.avatar = avatar;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
         //  need transfer List<Authority> to List<SimpleGrantedAuthority>，or the front end can not get the list name
@@ -81,52 +85,52 @@ public class User implements UserDetails, Serializable{
         this.authorities = authorities;
     }
 
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public String getAvatar() {
-//        return avatar;
-//    }
-//
-//    public void setAvatar(String avatar) {
-//        this.avatar = avatar;
-//    }
-//
-//    @Override
-//    public String getUsername() {
-//        return username;
-//    }
-//
-//    public void setUsername(String username) {
-//        this.username = username;
-//    }
-//
-//
-//    @Override
-//    public String getPassword() {
-//        return password;
-//    }
-//
-//    public void setPassword(String password) {
-//        this.password = password;
-//    }
+    public Long getId() {
+        return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public void setEncodePassword(String password) {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
