@@ -16,13 +16,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true) // start methodlevel_security configure
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    
     private static final String KEY = "nan.ding";
 
-    @Autowired
     private UserDetailsService userDetailsService;
 
-    @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public SecurityConfig(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
+        this.userDetailsService = userDetailsService;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
