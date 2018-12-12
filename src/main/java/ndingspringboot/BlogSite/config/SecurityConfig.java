@@ -13,14 +13,16 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * This class is what we used to implement the basic security feature in spring(boot)
+ *
+ */
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true) // start methodlevel_security configure
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    
+
     private static final String KEY = "nan.ding";
-
     private UserDetailsService userDetailsService;
-
     private PasswordEncoder passwordEncoder;
 
     @Autowired
@@ -29,6 +31,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * Use BCryptPasswordEncoder as our default password encoder
+     * @return
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
