@@ -1,4 +1,11 @@
 package ndingspringboot.BlogSite.service;
 
-public class VoteService {
+import ndingspringboot.BlogSite.domain.Vote;
+
+public interface VoteService {
+
+    Vote getVoteById(Long id);
+
+    void removeVote(Long id);
 }
+

@@ -1,7 +1,7 @@
 package ndingspringboot.BlogSite.service.impl;
 
 import ndingspringboot.BlogSite.domain.Authority;
-import ndingspringboot.BlogSite.domain.AuthorityRepository;
+import ndingspringboot.BlogSite.domain.Repository.AuthorityRepository;
 import ndingspringboot.BlogSite.service.AuthorityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

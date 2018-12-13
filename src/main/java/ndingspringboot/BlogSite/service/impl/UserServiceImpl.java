@@ -1,7 +1,7 @@
 package ndingspringboot.BlogSite.service.impl;
 
 import ndingspringboot.BlogSite.domain.User;
-import ndingspringboot.BlogSite.domain.UserRepository;
+import ndingspringboot.BlogSite.domain.Repository.UserRepository;
 import ndingspringboot.BlogSite.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.List;
 
 
@@ -69,4 +70,9 @@ public class UserServiceImpl implements UserService, UserDetailsService{
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username);
     }
+    @Override
+    public List<User> listUsersByUsernames(Collection<String> usernames) {
+        return userRepository.findByUsernameIn(usernames);
+    }
+
 }
