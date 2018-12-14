@@ -8,7 +8,7 @@
 <!-- Page Content -->
 <div class="container blog-content-container">
 	<div class="row">
-		<!-- 左侧栏目 -->
+		<!-- Left part -->
 		<div class="col-md-4 col-xl-3">
 			<div class="row">
 				<div class="col-md-12">
@@ -22,32 +22,32 @@
 				</div>
 			</div>
 		</div>
-		<!-- 右侧栏目 -->
+		<!-- right part -->
 		<div class="col-md-8 col-xl-9">
-			<!-- 个人设置 -->
+			<!-- personal settings -->
 			<div class="card ">
-				<h5 class="card-header"><i class="fa fa-cog" aria-hidden="true"></i> 个人设置</h5>
+				<h5 class="card-header"><i class="fa fa-cog" aria-hidden="true"></i> Personal Settings</h5>
 				<div class="card-block">
 					<form th:action="'/u/' + ${userModel.user.username} + '/profile'" method="post" th:object="${userModel.user}" id="userForm">
 						<input type="hidden" name="id" id="userId" th:value="*{id}" >
 						<div class="form-group ">
-							<label for="username" class="col-form-label">账号</label>
+							<label for="username" class="col-form-label">Username</label>
 							<input type="text" class="form-control" id="username" name="username"  th:value="*{username}" readonly="readonly">
 						</div>
 						<div class="form-group">
-							<label for="email" class="col-form-label">邮箱</label>
-							<input type="email" class="form-control" id="email" name="email" th:value="*{email}" maxlength="50" placeholder="请输入邮箱">
+							<label for="email" class="col-form-label">Email</label>
+							<input type="email" class="form-control" id="email" name="email" th:value="*{email}" maxlength="50" placeholder="Please enter email">
 						</div>
 						<div class="form-group">
-							<label for="name" class="col-form-label">姓名</label>
-							<input type="text" class="form-control" id="name" name="name" th:value="*{name}" maxlength="20" placeholder="请输入姓名，至少2个字符，至多20个" >
+							<label for="name" class="col-form-label">Name</label>
+							<input type="text" class="form-control" id="name" name="name" th:value="*{name}" maxlength="20" placeholder="Please enter name, 2-20 characters" >
 						</div>
 						<div class="form-group">
-							<label for="password" class="col-form-label">密码</label>
-							<input type="password" class="form-control" id="password" name="password"  th:value="*{password}" maxlength="30" placeholder="请输入密码，至少3个字符，至多30个" >
+							<label for="password" class="col-form-label">Password</label>
+							<input type="password" class="form-control" id="password" name="password"  th:value="*{password}" maxlength="30" placeholder="Please enter parssword" >
 						</div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary">保存</button>
+							<button type="submit" class="btn btn-primary">Save</button>
 						</div>
 					</form>
 				</div>
@@ -64,7 +64,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title" id="modalLabel">编辑头像</h4>
+				<h4 class="modal-title" id="modalLabel">Edit Avatar</h4>
 				<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 					<span aria-hidden="true">&times;</span>
@@ -73,7 +73,7 @@
 			</div>
 			<div class="modal-body" id="avatarFormContainer"></div>
 			<div class="modal-footer">
-				<button class="btn btn-primary" data-dismiss="modal" id="submitEditAvatar">提交</button>
+				<button class="btn btn-primary" data-dismiss="modal" id="submitEditAvatar">submit</button>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			</div>
 		</div>

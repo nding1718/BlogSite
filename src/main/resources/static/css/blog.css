@@ -1,9 +1,3 @@
-/*!
- * Blog main style.
- *
- * @since: 1.0.0
- * @author Way Lau <https://waylau.com>
- */
 /* Footer */
 .blog-footer {
     bottom: 0;
@@ -61,6 +55,23 @@
 /* blog avatar */
 .blog-avatar-img {
   max-width: 100%; 
+}
+
+/* make the element close to right */
+.blog-right {
+  float: right;
+  margin-right:0px;
+}
+
+.blog-list-group-item {
+	padding: .75rem 1.25rem;
+	border: 1px solid rgba(0,0,0,.125);
+}
+
+
+/* in case we have picture overborder */
+article img {
+    max-width: 100%;
 }
 
 
