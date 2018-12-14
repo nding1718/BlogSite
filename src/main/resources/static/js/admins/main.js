@@ -1,19 +1,18 @@
-"use strict";
 //# sourceURL=main.js
 
-// DOM execute after loading page
+// DOM 加载完再执行
 $(function() {
 
-	// menu event
+	// 菜单事件
 	$(".blog-menu .list-group-item").click(function() {
  
 		var url = $(this).attr("url");
 		
-		// remove other click format first and then add the current one
+		// 先移除其他的点击样式，再添加当前的点击样式
 		$(".blog-menu .list-group-item").removeClass("active");
 		$(this).addClass("active");  
  
-		// load the pages of other module to right work place
+		// 加载其他模块的页面到右侧工作区
 		 $.ajax({ 
 			 url: url, 
 			 success: function(data){
@@ -26,6 +25,6 @@ $(function() {
 	});
 	
 	
-	// pickup the first item in the menu
+	// 选中菜单第一项
 	 $(".blog-menu .list-group-item:first").trigger("click");
 });
