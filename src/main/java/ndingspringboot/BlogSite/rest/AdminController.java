@@ -26,3 +26,6 @@ public class AdminController {
         return new ModelAndView("/admins/index", "model", model);
     }
 }
+
+
+
